@@ -306,6 +306,92 @@ const UCSDC_EXTRA: Course[] = [
   },
 ];
 
+// Synthetic extraction, clash, and timetable fixtures. These generated records
+// are test data only and do not represent verified VIT Bhopal offerings.
+const SYNTHETIC_FACULTY = [
+  'SUCHISMITA PATRA', 'ARUNA J', 'DIP MUKHERJEE', 'HARISH CHANDRA', 'ENAGANDULA PRASAD',
+  'DILEEP KUMAR', 'MAYANK SHARMA', 'DONDHU HARISH BABU', 'ANUPAM SEN', 'ANIL KUMAR SHUKLA',
+  'PRASHANT KUMAR PANDEY', 'MUNIYAPPAN M', 'ANKIT FARKYA', 'DHARMALINGAMM', 'SANTOSH KUMAR BHAL',
+  'SUPRIYA KUMAR PAUL', 'HEMANTA KALITA', 'THILAGAVATHI A', 'ANANT KANT SHUKLA', 'EZHILARASAN P',
+  'GIRU P', 'SAURABH KUMAR MAURYA', 'AJAY KUMAR BHURJEE', 'SUMAN MAITI', 'ABHISHEK',
+  'PRIYANKA', 'KUMAR ABHISHEK', 'ADNAN ABBASI', 'BUVANESWARI P R', 'MITHUN SINGH AHIRWAR',
+  'TRAPTI SHARMA', 'JAY PRAKASH MAURYA', 'ABDUL RAHMAN', 'DEVENDRA KUMAR VEDI',
+  'SHELENDRA KUMAR JAIN', 'MOHD RAFI LONE', 'R. SENTHILKUMAR', 'MOSES DIAN S', 'KOMARASAMY G',
+  'PRAVINDRA SHEKHAR SHAKUNT', 'M. SURESH', 'ASHFAQ AHMAD NAJAR', 'VIKASH SHAW', 'DAWOOD SALEEM',
+];
+
+const SYNTHETIC_VENUES = [
+  'AB02-415', 'AB02-417', 'AB-403', 'AB02-103', 'AB-415', 'AB-429', 'AB-420', 'AB-501',
+  'AB02-419', 'AB02-324', 'AB-303', 'AB-331', 'AB-101', 'AB02-320', 'AB-128', 'AB02-423',
+  'AB-431', 'AB-513', 'AB-502', 'AB-317', 'AB02-418', 'AB-503', 'AB-023', 'AR-102',
+  'AB02-017', 'AB-230', 'AB02-019', 'CR-011', 'CR-015', 'AB-127', 'CR-003', 'CR-012',
+  'AB-117', 'CR-007', 'CR-023', 'CR-013', 'CR-006', 'AB02-325', 'AB02-401', 'AB02-403',
+  'AB02-301', 'AB02-404', 'AB02-316', 'AB02-402', 'AB02-306', 'AB02-409', 'AB02-408', 'AB02-414',
+];
+
+const TWO_PERIOD_SLOTS = [
+  'A11+A12', 'A14+D11', 'A21+A22', 'A21+A23', 'A24+E21', 'B11+B12', 'B14+B23',
+  'B14+D21', 'B21+E14', 'B21+E22', 'B22+B24', 'B22+F21', 'B23+D21', 'C11+C12',
+  'D11+D12', 'E11+E12', 'F11+F12',
+];
+
+const THREE_PERIOD_SLOTS = [
+  'A11+A12+A13', 'A14+D11+D12', 'A21+A22+A23', 'A24+E21+F22', 'B11+B12+B13',
+  'B14+B23+D21', 'B21+E14+E22', 'B22+B24+F21', 'C11+C12+C13', 'C21+F11+F12',
+];
+
+const SYNTHETIC_COURSE_DEFINITIONS = [
+  { courseCode: 'CSE7001', courseTitle: 'Data Structures and Algorithms', courseType: 'Lecture and Practical Hours Only', ltpj: '3 0 2 0', credits: 4 },
+  { courseCode: 'CSE7002', courseTitle: 'Database Management Systems', courseType: 'Lecture and Practical Hours Only', ltpj: '3 0 2 0', credits: 4 },
+  { courseCode: 'CSE7003', courseTitle: 'Operating Systems', courseType: 'Lecture and Practical Hours Only', ltpj: '3 0 2 0', credits: 4 },
+  { courseCode: 'CSE7004', courseTitle: 'Computer Networks', courseType: 'Lecture and Practical Hours Only', ltpj: '3 0 2 0', credits: 4 },
+  { courseCode: 'CSE7005', courseTitle: 'Computer Architecture', courseType: 'Theory', ltpj: '3 0 0 0', credits: 3 },
+  { courseCode: 'MAT7001', courseTitle: 'Applied Mathematics', courseType: 'Lecture and Tutorial Hours Only', ltpj: '3 1 0 0', credits: 4 },
+  { courseCode: 'MAT7002', courseTitle: 'Linear Algebra', courseType: 'Lecture and Tutorial Hours Only', ltpj: '3 1 0 0', credits: 4 },
+  { courseCode: 'CSE7006', courseTitle: 'Artificial Intelligence', courseType: 'Lecture and Practical Hours Only', ltpj: '3 0 2 0', credits: 4 },
+  { courseCode: 'CSE7007', courseTitle: 'Machine Learning', courseType: 'Lecture and Practical Hours Only', ltpj: '3 0 2 0', credits: 4 },
+  { courseCode: 'CSE7008', courseTitle: 'Software Engineering', courseType: 'Theory', ltpj: '3 0 0 0', credits: 3 },
+  { courseCode: 'CSE7009', courseTitle: 'Object-Oriented Programming', courseType: 'Lecture and Practical Hours Only', ltpj: '3 0 2 0', credits: 4 },
+  { courseCode: 'CSE7010', courseTitle: 'Cloud Computing', courseType: 'Lecture and Practical Hours Only', ltpj: '3 0 2 0', credits: 4 },
+  { courseCode: 'CSE7011', courseTitle: 'Cyber Security', courseType: 'Lecture and Practical Hours Only', ltpj: '3 0 2 0', credits: 4 },
+  { courseCode: 'CSE7012', courseTitle: 'Data Science', courseType: 'Lecture and Practical Hours Only', ltpj: '3 0 2 0', credits: 4 },
+  { courseCode: 'MAT7003', courseTitle: 'Discrete Mathematics', courseType: 'Lecture and Tutorial Hours Only', ltpj: '3 1 0 0', credits: 4 },
+];
+
+const SEAT_SCENARIOS: Array<number | null> = [75, 24, 8, 0, null, 46, 18, 5];
+
+const SYNTHETIC_COURSES: Course[] = SYNTHETIC_COURSE_DEFINITIONS.map((definition, courseIndex) => {
+  const slots = [
+    TWO_PERIOD_SLOTS[courseIndex % TWO_PERIOD_SLOTS.length],
+    THREE_PERIOD_SLOTS[courseIndex % THREE_PERIOD_SLOTS.length],
+    TWO_PERIOD_SLOTS[(courseIndex + 1) % TWO_PERIOD_SLOTS.length],
+    THREE_PERIOD_SLOTS[(courseIndex + 1) % THREE_PERIOD_SLOTS.length],
+    TWO_PERIOD_SLOTS[(courseIndex + 4) % TWO_PERIOD_SLOTS.length],
+    THREE_PERIOD_SLOTS[(courseIndex + 3) % THREE_PERIOD_SLOTS.length],
+    TWO_PERIOD_SLOTS[(courseIndex + 6) % TWO_PERIOD_SLOTS.length],
+    TWO_PERIOD_SLOTS[courseIndex % TWO_PERIOD_SLOTS.length],
+  ];
+  const offerings: Offering[] = slots.map((slot, offeringIndex) => ({
+    offeringId: oid(),
+    courseCode: definition.courseCode,
+    slot,
+    venue: SYNTHETIC_VENUES[(courseIndex * 13 + offeringIndex * 9) % SYNTHETIC_VENUES.length],
+    faculty: SYNTHETIC_FACULTY[(courseIndex * 7 + offeringIndex * 11) % SYNTHETIC_FACULTY.length],
+    availableSeats: SEAT_SCENARIOS[offeringIndex],
+    courseType: definition.courseType,
+    courseCategory: 'PC',
+  }));
+
+  return {
+    ...definition,
+    category: 'PC',
+    preRequisite: '',
+    coRequisite: '',
+    antiRequisite: '',
+    offerings,
+  };
+});
+
 // ============================================================
 // All courses aggregated
 // ============================================================
@@ -316,6 +402,7 @@ export const ALL_COURSES: Course[] = [
   ...UCPI_COURSES,
   ...UCSDC_COURSES,
   ...UCSDC_EXTRA,
+  ...SYNTHETIC_COURSES,
 ];
 
 /**

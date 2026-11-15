@@ -64,6 +64,38 @@ test('slot map has 42 periods, expands combined slots, and rejects unknown or du
   assert.deepEqual(expandSlot(undefined), []);
 });
 
+test('expanded synthetic catalogue has unique records, valid atomic slots, and seat coverage', () => {
+  const codes = ALL_COURSES.map(course => course.courseCode);
+  const offerings = ALL_COURSES.flatMap(course => course.offerings);
+  const offeringIds = offerings.map(offering => offering.offeringId);
+  const distinctFaculty = new Set(offerings.map(offering => offering.faculty));
+  const distinctSlots = new Set(offerings.map(offering => offering.slot));
+
+  assert.equal(new Set(codes).size, codes.length);
+  assert.equal(new Set(offeringIds).size, offeringIds.length);
+  assert.equal(ALL_COURSES.length, 25);
+  assert.equal(offerings.length, 140);
+  assert.ok(offerings.every(offering => codes.includes(offering.courseCode)));
+  assert.ok(offerings.every(offering => isValidSlot(offering.slot)));
+  assert.ok(offerings.every(offering => expandSlot(offering.slot).join('+') === offering.slot));
+  assert.ok(distinctFaculty.size >= 40);
+  assert.ok(distinctSlots.size >= 20);
+
+  assert.ok(offerings.some(offering => offering.availableSeats === 0));
+  assert.ok(offerings.some(offering => offering.availableSeats === null));
+  assert.ok(offerings.some(offering => offering.availableSeats >= 40));
+  assert.ok(offerings.some(offering => offering.availableSeats >= 15 && offering.availableSeats <= 39));
+  assert.ok(offerings.some(offering => offering.availableSeats >= 1 && offering.availableSeats <= 14));
+
+  const syntheticCourse = getCourseByCode('CSE7001');
+  assert.equal(syntheticCourse.offerings[0].slot, syntheticCourse.offerings[7].slot);
+  assert.notEqual(syntheticCourse.offerings[0].faculty, syntheticCourse.offerings[7].faculty);
+  assert.notEqual(syntheticCourse.offerings[0].venue, syntheticCourse.offerings[7].venue);
+  assert.equal(syntheticCourse.offerings[0].faculty, syntheticCourse.offerings[4].faculty);
+  assert.notEqual(syntheticCourse.offerings[0].slot, syntheticCourse.offerings[4].slot);
+  assert.ok(offerings.every(offering => !('clashStatus' in offering) && !('clashes' in offering)));
+});
+
 test('registration, full seats, clashes, modification, duplicate guards, and timetable agree', () => {
   const mca1005 = getCourseByCode('MCA1005');
   const mca1002 = getCourseByCode('MCA1002');
